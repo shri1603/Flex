@@ -14,13 +14,15 @@
 		private var medalsAC:ArrayCollection = new ArrayCollection( [{ Gold:20,Time: "12:00"},
 			{ Gold: 50,Time: "13:00" },
 			{  Gold: 32 ,Time: "14:00"},
-			{Gold: 27,Time: "15:00" },{ Gold: 12,Time: "16:00" },{ Gold: 18,Time: "17.00" },{Gold: 30,Time: "18:00"}
+			{Gold: 27,Time: "15:00" },{ Gold: 12,Time: "16:00" },{ Gold: 18,Time: "17.00" },{Gold: 30,Time: "18:00"},{Gold: 14,Time: "19:00"},
+			{Gold: 8,Time: "20:00"},{Gold: 30,Time: "21:00"},{Gold: 13,Time: "22:00"},{Gold: 19,Time: "23:00"}
 		]);
 		
 		private function application1_creationCompleteHandler():void
 		{
 			var CurrentDateTime:Date = new Date();
-			selection.text = CurrentDateTime.toDateString();			
+			selection.text = CurrentDateTime.toDateString();	
+			dateField1.text= CurrentDateTime.toDateString();			
 		}
 		
 		
@@ -30,8 +32,8 @@
 			if (date == null)
 				selection.text = CurrentDateTime.toDateString() ;                
 			else
-				selection.text = date.getFullYear().toString() + 
-					'-' + (date.getMonth()+1).toString() + '-' + date.getDate();
+				selection.text = date.toDateString();
+
 		}
 		
 	</fx:Script>
@@ -55,7 +57,7 @@
 				<mx:LinkButton  label="This Week" fontSize="12" color="black" fontWeight="normal"/>
 				<mx:LinkButton  label="Yesterday" fontSize="12" color="black" fontWeight="normal"/>	
 				<mx:LinkButton  label="Today" fontSize="12" color="black" fontWeight="normal" click="application1_creationCompleteHandler()"/>
-				<mx:DateField id="dateField1" yearNavigationEnabled="false" change="dateChanged(DateField(event.target).selectedDate)"/>
+				<mx:DateField id="dateField1"  text="{application1_creationCompleteHandler()}" yearNavigationEnabled="false" change="dateChanged(DateField(event.target).selectedDate)"/>
 			</mx:HBox>
 		</mx:HBox>
 		<mx:HRule width="100%" height="1"/>
@@ -95,7 +97,7 @@
 			
 		</mx:HBox>
 		
-		<mx:HBox height="60" width="100%" backgroundColor="#6BE7FD" paddingLeft="200" paddingBottom="40" paddingRight="20" paddingTop="10">
+		<mx:HBox height="55" width="100%" backgroundColor="#6BE7FD" paddingLeft="200"  paddingRight="20" paddingTop="5">
 			<mx:VBox>
 				<s:Label text="Subscriber" fontSize="20"/>
 				<s:TextInput text="5000" fontSize="16"   borderAlpha="0" borderVisible="false"  contentBackgroundAlpha="0" />

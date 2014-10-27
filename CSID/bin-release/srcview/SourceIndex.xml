@@ -15,10 +15,14 @@
 		<node label="libs">
 		</node>
 		<node label="src">
+			<node label="model">
+			</node>
 			<node icon="mxmlAppIcon" selected="true" label="CSID_UI.mxml" url="source/CSID_UI.mxml.html"/>
 		</node>
+		<node icon="htmlIcon" label="index.html" url="source/index.html"/>
+		<node icon="swfIcon" label="playerProductInstall.swf" url="source/playerProductInstall.swf"/>
 	</nodes>
-	<zipfile label="Download source (ZIP, 20K)" url="CSID_UI.zip">
+	<zipfile label="Download source (ZIP, 24K)" url="CSID_UI.zip">
 	</zipfile>
 	<sdklink label="Download Flex SDK" url="http://www.adobe.com/go/flex451_sdk_download">
 	</sdklink>
